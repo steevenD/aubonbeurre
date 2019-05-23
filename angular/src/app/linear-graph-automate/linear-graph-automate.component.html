@@ -1,0 +1,23 @@
+<div *ngIf="fGroup">
+  <form [formGroup]="fGroup">
+    <mat-form-field>
+      <mat-label>Unité de l'automate</mat-label>
+      <mat-select formControlName="uniteAutomate">
+        <mat-option *ngFor="let unite of unites" [value]="unite">
+          {{unite}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="fGroup.get('uniteAutomate').value">
+      <mat-label>Numéro de l'automate</mat-label>
+      <mat-select formControlName="numeroAutomate" (selectionChange)="loadData()">
+        <mat-option *ngFor="let num of numeros" [value]="num">
+          {{num}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+  <app-linear-graph *ngIf="data" [legendY]="'Température (degré)'" [nameData]="'Température cuve'" [data]="initGraphTemperature()"></app-linear-graph>
+</div>
