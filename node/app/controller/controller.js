@@ -35,7 +35,7 @@ exports.getDonnees = (req, res) => {
             console.error(err);
             throw err;
         } else {
-            con.query(`SELECT * FROM donnees where automateId = '${idAutomate}';`, function (err, donneesAutomate, fields) {
+            con.query(`SELECT * FROM donnees where automateId = '${idAutomate[0].id}';`, function (err, donneesAutomate, fields) {
                 if (err) {
                     console.log(err);
                     throw err;
