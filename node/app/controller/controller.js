@@ -23,28 +23,28 @@ const con = mysql.createPool({
 });
 
 
-
-
 /**
- * return all vote per date
+ * retourne les donnes d'un automate
  * @param req
  * @param res
  */
-exports.getAutomate = (req, res) => {
-    // con.connect(function(err) {
-    console.log(req.body);
-    let date = [];
-    var sql = `SELECT * FROM automates where unite =  `;
-    con.query(sql, function (err, result) {
+exports.getDonnees = (req, res) => {
+    var sql = `SELECT id FROM automates where unite = '${req.params.unite}' AND numero = '${req.params.numero}';`;
+    con.query(sql, function (err, idAutomate) {
         if (err) {
             console.error(err);
             throw err;
-        }
-        for (let i = 0; i < result.length; i ++){
-        	console.log(result);
+        } else {
+            con.query(`SELECT * FROM donnees where automateId = '${idAutomate}';`, function (err, donneesAutomate, fields) {
+                if (err) {
+                    console.log(err);
+                    throw err;
+                } else {
+                    res.status(200).send({ 'donnes': donneesAutomate});
+                }
+            });
         }
 
-        res.status(200).send({ 'ok': 'ok'});
         return;
     });
 };

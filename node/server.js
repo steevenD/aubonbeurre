@@ -1,6 +1,14 @@
 var express = require('express');
+var cors = require('cors');
+
 var app = express();
 
+app.use(cors());
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "x-access-token, Origin, Content-Type, Accept");
+    next();
+});
 require('./app/router/router.js')(app);
 
 const db = require('./app/config/db.config.js');

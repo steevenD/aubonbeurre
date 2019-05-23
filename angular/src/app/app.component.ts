@@ -22,7 +22,12 @@ export class AppComponent implements OnInit {
     this.fGroup = this.appService.generateformSearchInfoAutomate();
 
     this.fGroup.valueChanges.subscribe(() => {
-      console.log(this.fGroup.value);
+      if(this.fGroup.get('numeroAutomate').value) {
+        this.appService.getAllDonnees(this.fGroup.get('uniteAutomate').value, this.fGroup.get('numeroAutomate').value)
+          .subscribe(data => {
+            console.log(data);
+          });
+      }
     });
   }
 }
