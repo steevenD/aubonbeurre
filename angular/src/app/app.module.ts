@@ -7,10 +7,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSelectModule} from "@angular/material";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { LinearGraphAutomateComponent } from './linear-graph-automate/linear-graph-automate.component';
+import {NgxChartsModule} from "@swimlane/ngx-charts";
+import { LinearGraphComponent } from './linear-graph/linear-graph.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LinearGraphAutomateComponent,
+    LinearGraphComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +23,8 @@ import {HttpClientModule} from "@angular/common/http";
     MatSelectModule,
     FormsModule, ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

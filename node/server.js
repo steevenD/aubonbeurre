@@ -71,6 +71,7 @@ function initial() {
 	Donnee.create({
 		id: 1,
         tempCuve: 10,
+        tempExt: 4,
         poidsLait: 5,
 		mesurePH: 5,
 		mesureK: 1,
@@ -80,4 +81,17 @@ function initial() {
 		niveauBacterienListeria: 12,
 		automateId: 1
 	});
+    Donnee.create({
+        id: 2,
+        tempCuve: 3,
+        tempExt: 4,
+        poidsLait: 5,
+        mesurePH: 5,
+        mesureK: 1,
+        concentrationNaCl: 12,
+        niveauBacterienSalmonelle: 89,
+        niveauBacterienEcoli: 13,
+        niveauBacterienListeria: 12,
+        automateId: 1
+    });
 }

@@ -10,24 +10,10 @@ import {FormGroup} from "@angular/forms";
 export class AppComponent implements OnInit {
   title = 'Au bon beurre';
 
-  unites = [1,2,3,4,5];
-  numeros = this.unites.concat([6,7,8,9,10]);
-  fGroup: FormGroup;
-
   constructor(private appService: AppService){
 
   }
 
   ngOnInit(): void {
-    this.fGroup = this.appService.generateformSearchInfoAutomate();
-
-    this.fGroup.valueChanges.subscribe(() => {
-      if(this.fGroup.get('numeroAutomate').value) {
-        this.appService.getAllDonnees(this.fGroup.get('uniteAutomate').value, this.fGroup.get('numeroAutomate').value)
-          .subscribe(data => {
-            console.log(data);
-          });
-      }
-    });
   }
 }

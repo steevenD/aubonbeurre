@@ -7,6 +7,9 @@ module.exports = (sequelize, Sequelize) => {
 	  tempCuve: {
 		  type: Sequelize.FLOAT
 	  },
+	  tempExt: {
+		  type: Sequelize.FLOAT
+	  },
 	  poidsLait: {
 		  type: Sequelize.FLOAT
 	  },

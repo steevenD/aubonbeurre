@@ -1,22 +1,3 @@
-<div *ngIf="fGroup">
-<form [formGroup]="fGroup">
-  <mat-form-field>
-    <mat-label>Unité de l'automate</mat-label>
-    <mat-select formControlName="uniteAutomate">
-      <mat-option *ngFor="let unite of unites" [value]="unite">
-        {{unite}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
 
-  <mat-form-field *ngIf="fGroup.get('uniteAutomate').value">
-    <mat-label>Numéro de l'automate</mat-label>
-    <mat-select formControlName="numeroAutomate">
-      <mat-option *ngFor="let num of numeros" [value]="num">
-        {{num}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</form>
-</div>
+  <app-linear-graph-automate></app-linear-graph-automate>
 <router-outlet></router-outlet>
