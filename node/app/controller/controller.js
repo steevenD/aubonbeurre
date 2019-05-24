@@ -48,3 +48,20 @@ exports.getDonnees = (req, res) => {
         return;
     });
 };
+
+/**
+ * retourne les donnes d'un automate
+ * @param req
+ * @param res
+ */
+exports.getAllDonnees = (req, res) => {
+    var sql = `SELECT unite, numero, '${req.params.donnee}' FROM automates JOIN donnee ON automates.id = donnees.automateId ORDER BY donnees.createdAt LIMIT 300;`;
+    con.query(sql, function (err, donnees) {
+        if (err) {
+            console.log(err);
+            throw err;
+        } else {
+            res.status(200).send({ 'donnes': donnees});
+        }
+    });
+};

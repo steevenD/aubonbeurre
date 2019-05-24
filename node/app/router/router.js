@@ -13,6 +13,8 @@ module.exports = function (app) {
 
 
 
-	app.get('/api/getDonnees/:unite/:numero', controller.getDonnees);
+    app.get('/api/getDonnees/:unite/:numero', controller.getDonnees);
+    
+	app.get('/api/getAllDonnees/:donnee', controller.getAllDonnees);
 
 };
