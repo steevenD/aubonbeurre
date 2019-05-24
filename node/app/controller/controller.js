@@ -55,7 +55,7 @@ exports.getDonnees = (req, res) => {
  * @param res
  */
 exports.getAllDonnees = (req, res) => {
-    var sql = `SELECT unite, numero, ${req.params.donnee} FROM automates JOIN donnees ON automates.id = donnees.automateId ORDER BY donnees.createdAt LIMIT 300;`;
+    var sql = `SELECT unite, numero, ${req.params.donnee} FROM automates JOIN donnees ON automates.id = donnees.automateId ORDER BY donnees.createdAt LIMIT 50;`;
     con.query(sql, function (err, donnees) {
         if (err) {
             console.log(err);

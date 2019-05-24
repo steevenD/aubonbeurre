@@ -26,8 +26,7 @@ export class UnitGraphComponent implements OnInit {
 
   ngOnInit() {
     this.units = "degré celsius";
-
-    console.log("UNIT" + (this.unit + 1) + " : ", this.data);
+    this.data = this.data;
 
     this.checkDataOptions();
   }
