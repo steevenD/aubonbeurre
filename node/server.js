@@ -94,4 +94,43 @@ function initial() {
         niveauBacterienListeria: 12,
         automateId: 1
     });
+    Donnee.create({
+        id: 3,
+        tempCuve: 3,
+        tempExt: 4,
+        poidsLait: 5,
+        mesurePH: 5,
+        mesureK: 1,
+        concentrationNaCl: 12,
+        niveauBacterienSalmonelle: 89,
+        niveauBacterienEcoli: 13,
+        niveauBacterienListeria: 12,
+        automateId: 2
+    });
+    Donnee.create({
+        id: 4,
+        tempCuve: 3,
+        tempExt: 4,
+        poidsLait: 5,
+        mesurePH: 5,
+        mesureK: 1,
+        concentrationNaCl: 12,
+        niveauBacterienSalmonelle: 89,
+        niveauBacterienEcoli: 13,
+        niveauBacterienListeria: 12,
+        automateId: 3
+    });
+    Donnee.create({
+        id: 5,
+        tempCuve: 3,
+        tempExt: 4,
+        poidsLait: 5,
+        mesurePH: 5,
+        mesureK: 1,
+        concentrationNaCl: 12,
+        niveauBacterienSalmonelle: 89,
+        niveauBacterienEcoli: 13,
+        niveauBacterienListeria: 12,
+        automateId: 4
+    });
 }

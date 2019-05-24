@@ -14,11 +14,12 @@ export class UnitGraphComponent implements OnInit {
   dataMax: number;
   dataSegmentBig: number;
   colorScheme = {
-    domain: ['#ff0000', '#ff00ff', '#0000ff', '#00ffff', '#00ff00', '#ffff00']
+    domain: ['#ff0000', '#ff0080', '#ff00ff', '#8000ff', '#0000ff', '#0080ff', '#00ffff', '#00ff80', '#00ff00', '#80ff00', '#ffff00', '#ff8000']
   };
   units: string;
   valueFormatting = () => {
     let average = 0;
+    let unit1 = []
     this.data.forEach(element => {
       average = average + element.value;
     });

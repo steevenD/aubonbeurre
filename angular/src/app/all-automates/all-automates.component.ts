@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { AppService } from '../services/app.service';
+import { AppService } from './services/app.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -13,7 +12,7 @@ export class AllAutomatesComponent implements OnInit {
   fGroup: FormGroup;
 
   indice: string = null;
-  unitsData: any[];
+  unitsData: any[5];
 
   refresh = true;
   donnees = [
@@ -40,19 +39,16 @@ export class AllAutomatesComponent implements OnInit {
       this.refresh = true;
       this.loadData();
     },10000)
-
-
-    this.unitsData = [
-      [{"name": "automate 01", "value": 10},{"name": "automate 02", "value": 5},{"name": "automate 03", "value": 15}],
-      [{"name": "automate 01", "value": 10},{"name": "automate 02", "value": 5},{"name": "automate 03", "value": 15}]
-    ];
   }
   
   loadData(){
     if(this.refresh && this.fGroup.get('donneeIndice').value){
       this.indice = this.fGroup.get('donneeIndice').value
-      this.api.getAllAutomatesDonnees(this.indice).subscribe((data) => {
+      this.api.getAllAutomatesDonnees(this.indice).subscribe((data: any[]) => {
         console.log(data);
+        data.forEach(element => {
+          this.unitsData[element.unite].push({"name": "Automate " + (element.numero < 10 ? "0" + element.numero : element.numero), "value": element.get(this.indice)});
+        });
       },
       error => {});
     }

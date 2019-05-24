@@ -10,8 +10,8 @@
   </mat-form-field>
 </form>
 
-<div *ngIf="indice">
-  <div *ngFor="let data of unitsData" style="width: 50vW; height: 50vh">
+<div class="row" *ngIf="indice">
+  <div class="col-6" *ngFor="let data of unitsData" style="width: 50vW; height: 50vh">
     <app-unit-graph [data]="data"></app-unit-graph>
   </div>
 </div>
