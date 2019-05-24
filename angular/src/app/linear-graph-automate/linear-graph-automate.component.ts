@@ -14,8 +14,16 @@ export class LinearGraphAutomateComponent implements OnInit {
 
 
   fGroup: FormGroup;
-  go = new BehaviorSubject(false);
-  go$ = this.go.asObservable();
+
+  dataTempCuve: any[];
+  dataTempExt: any[];
+  dataPoidsLait: any[];
+  dataMesurePH: any[];
+  dataMesureK: any[];
+  dataConcentrationNaCl: any[];
+  dataNiveauBacterienSalmonelle: any[];
+  dataNiveauBacterienEcoli: any[];
+  dataNiveauBacterienListeria: any[];
 
   refresh = true;
   unites = [1,2,3,4,5];
@@ -36,35 +44,81 @@ export class LinearGraphAutomateComponent implements OnInit {
   }
 
   loadData(){
-
+    alert('test');
       if(this.refresh && this.fGroup.get('numeroAutomate').value){
-        this.linearService.getAllDonnees(this.fGroup.get('uniteAutomate').value, this.fGroup.get('numeroAutomate').value)
-          .subscribe(data => {
-            this.data = data;
-            console.log(this.data);
-            this.initGraph();
-            this.refresh = false;
-          });
+        this.initLoadData();
       }
-
   }
 
-  initGraph(){
-      this.initGraphTemperature();
+  initLoadData() {
+    this.linearService.getAllDonnees(this.fGroup.get('uniteAutomate').value, this.fGroup.get('numeroAutomate').value)
+      .subscribe(data => {
+        this.data = data;
+        this.initGraph();
+        this.refresh = false;
+      });
   }
 
-  initGraphTemperature() {
-    let toReturnTempCave = [];
+  initGraph() {
+    let toReturnTempCuve = [];
+    let toReturnTempExt = [];
+    let toReturnPoidsLait = [];
+    let toReturnMesurePH = [];
+    let toReturnMesureK = [];
+    let toReturnConcentrationNaCl = [];
+    let toReturnNiveauBacterienSalmonelle = [];
+    let toReturnNiveauBacterienEcoli = [];
+    let toReturnNiveauBacterienListeria = [];
 
     if(this.data.donnes.length > 60) {
       this.data.donnes = this.data.donnes.slice(this.data.donnes.length - 60, this.data.donnes.length);
     }
     for (let i = 0; i < this.data.donnes.length; i++) {
-      toReturnTempCave.push({
-        "value": this.data.donnes[i].tempCuve,
+      toReturnTempCuve.push({
+        "value":  this.data.donnes[i].tempCuve,
         "name": i
       });
+      toReturnTempExt.push({
+        "value":  this.data.donnes[i].tempExt,
+        "name": i
+      });
+      toReturnPoidsLait.push({
+        "value": this.data.donnes[i].poidsLait,
+        "name": i
+      });
+      toReturnMesurePH.push({
+        "value": this.data.donnes[i].mesurePH,
+        "name": i
+      });
+      toReturnMesureK.push({
+        "value": this.data.donnes[i].mesureK,
+        "name": i
+      });
+      toReturnConcentrationNaCl.push({
+        "value": this.data.donnes[i].concentrationNaCl,
+        "name": i
+      });
+      toReturnNiveauBacterienSalmonelle.push({
+        "value": this.data.donnes[i].niveauBacterienSalmonelle,
+        "name": i
+      });
+      toReturnNiveauBacterienEcoli.push({
+        "value": this.data.donnes[i].niveauBacterienEcoli,
+        "name": i
+      });
+      toReturnNiveauBacterienListeria.push({
+        "value": this.data.donnes[i].niveauBacterienListeria,
+        "name": i
+      })
     }
-    return toReturnTempCave;
+    this.dataTempCuve = toReturnTempCuve;
+    this.dataTempExt = toReturnTempExt;
+    this.dataPoidsLait = toReturnPoidsLait;
+    this.dataMesurePH = toReturnMesurePH;
+    this.dataMesureK = toReturnMesureK;
+    this.dataConcentrationNaCl = toReturnConcentrationNaCl;
+    this.dataNiveauBacterienSalmonelle = toReturnNiveauBacterienSalmonelle;
+    this.dataNiveauBacterienEcoli = toReturnNiveauBacterienEcoli;
+    this.dataNiveauBacterienListeria = toReturnNiveauBacterienListeria;
   }
 }

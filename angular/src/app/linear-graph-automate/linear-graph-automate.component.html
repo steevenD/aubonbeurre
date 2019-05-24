@@ -11,7 +11,7 @@
 
     <mat-form-field *ngIf="fGroup.get('uniteAutomate').value">
       <mat-label>Numéro de l'automate</mat-label>
-      <mat-select formControlName="numeroAutomate" (selectionChange)="loadData()">
+      <mat-select formControlName="numeroAutomate" (selectionChange)="initLoadData()">
         <mat-option *ngFor="let num of numeros" [value]="num">
           {{num}}
         </mat-option>
@@ -19,5 +19,15 @@
     </mat-form-field>
   </form>
 
-  <app-linear-graph *ngIf="data" [legendY]="'Température (degré)'" [nameData]="'Température cuve'" [data]="initGraphTemperature()"></app-linear-graph>
+  <div class="flex fd-c">
+    <app-linear-graph *ngIf="data" [legendY]="'Température (degré)'" [nameData]="'Température cuve'" [data]="dataTempCuve"></app-linear-graph>
+    <app-linear-graph *ngIf="data" [legendY]="'Température (degré)'" [nameData]="'Température Extérieur'" [data]="dataTempExt"></app-linear-graph>
+    <app-linear-graph *ngIf="data" [legendY]="'Poids (kg)'" [nameData]="'Poids du lait en cuve'" [data]="dataPoidsLait"></app-linear-graph>
+    <app-linear-graph *ngIf="data" [legendY]="'Mesure (pH)'" [nameData]="'Mesure pH'" [data]="dataMesurePH"></app-linear-graph>
+    <app-linear-graph *ngIf="data" [legendY]="'Mesure (mg/L)'" [nameData]="'Mesure K+'" [data]="dataMesureK"></app-linear-graph>
+    <app-linear-graph *ngIf="data" [legendY]="'Concnetration (g/L)'" [nameData]="'Concentration de NaCl'" [data]="dataConcentrationNaCl"></app-linear-graph>
+    <app-linear-graph *ngIf="data" [legendY]="'Niveau bactérien (ppm)'" [nameData]="'Niveau bactérien salmonelle'" [data]="dataNiveauBacterienSalmonelle"></app-linear-graph>
+    <app-linear-graph *ngIf="data" [legendY]="'Niveau bactérien (ppm)'" [nameData]="'Niveau bactérien E-coli'" [data]="dataNiveauBacterienEcoli"></app-linear-graph>
+    <app-linear-graph *ngIf="data" [legendY]="'Niveau bactérien (ppm)'" [nameData]="'Niveau bactérien listéria'" [data]="dataNiveauBacterienListeria"></app-linear-graph>
+  </div>
 </div>

@@ -13,3 +13,13 @@
   [yAxisLabel]="yAxisLabel"
   (select)="onSelect($event)">
 </ngx-charts-line-chart>
+
+<div class="slider">
+  <mat-slider
+  (valueChange)="sizeChange($event)"
+  thumbLabel
+  tickInterval="10"
+  min="1000"
+  max="1250"></mat-slider>
+</div>
+

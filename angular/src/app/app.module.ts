@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatSelectModule} from "@angular/material";
+import {MatSelectModule, MatSliderModule} from "@angular/material";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { LinearGraphAutomateComponent } from './linear-graph-automate/linear-graph-automate.component';
@@ -24,7 +24,8 @@ import { LinearGraphComponent } from './linear-graph/linear-graph.component';
     FormsModule, ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxChartsModule
+    NgxChartsModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

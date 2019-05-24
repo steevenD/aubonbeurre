@@ -1,5 +1,28 @@
 ::ng-deep .ngx-charts  text { fill: #A0AABE !important; }
+::ng-deep .mat-select-value  { color: #A0AABE !important; }
+::ng-deep .mat-select-arrow  { color: #A0AABE !important; }
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline  { background-color: #A0AABE !important; }
+
+::ng-deep .chart-legend .legend-labels {
+  width: 300px !important;
+  padding-bottom: 5px !important;
+}
+
+::ng-deep .mat-option-text {
+  color: black;
+ }
+
+::ng-deep .chart-legend .legend-label-text{
+  font-size: 18px !important;
+  height: 22px !important;
+}
 
 * {
   color: #A0AABE !important;
+}
+
+form {
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
 }

@@ -44,54 +44,30 @@ var server = app.listen(8080, function () {
 });
 
 function initial() {
-	Automate.create({
-		id: 1,
-		unite: 2,
-        numero: 1,
-        type: 89698
-	});
-	Automate.create({
-		id: 2,
-		unite: 2,
-        numero: 2,
-        type: 4521
-	});
-	Automate.create({
-		id: 3,
-		unite: 1,
-        numero: 1,
-        type: 693
-	});
-	Automate.create({
-		id: 4,
-		unite: 2,
-        numero: 3,
-        type: 7
-	});
-	Donnee.create({
-		id: 1,
-        tempCuve: 10,
-        tempExt: 4,
-        poidsLait: 5,
-		mesurePH: 5,
-		mesureK: 1,
-		concentrationNaCl: 12,
-		niveauBacterienSalmonelle: 89,
-		niveauBacterienEcoli: 13,
-		niveauBacterienListeria: 12,
-		automateId: 1
-	});
-    Donnee.create({
-        id: 2,
-        tempCuve: 3,
-        tempExt: 4,
-        poidsLait: 5,
-        mesurePH: 5,
-        mesureK: 1,
-        concentrationNaCl: 12,
-        niveauBacterienSalmonelle: 89,
-        niveauBacterienEcoli: 13,
-        niveauBacterienListeria: 12,
-        automateId: 1
-    });
+
+    for (let i = 1; i < 6; i++) {
+        Automate.create({
+            id: i,
+            unite: 1,
+            numero: i,
+            type: ((i%2) === 0) ? '0X0000BA20' : '0X0000BA2F'
+        });
+    }
+
+
+	for (let i = 0; i < 70; i ++){
+        Donnee.create({
+            id: i,
+            tempCuve: ((i%2) === 0) ? 7 : i,
+            tempExt: ((i%3) === 0) ? 15 : i + 2,
+            poidsLait: i,
+            mesurePH: ((i%4) === 0) ? 1 : i + 2,
+            mesureK: i,
+            concentrationNaCl: ((i%7) === 0) ? 33 : i,
+            niveauBacterienSalmonelle: i,
+            niveauBacterienEcoli: 12 + i,
+            niveauBacterienListeria: i,
+            automateId: ((i%2) ===0 )? 1 : 2
+        });
+    }
 }

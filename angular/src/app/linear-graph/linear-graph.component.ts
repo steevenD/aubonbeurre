@@ -19,7 +19,7 @@ export class LinearGraphComponent implements OnInit, OnChanges {
   single: any[];
   multi: any[];
 
-  view: any[] = [700, 400];
+  view: any[] = [1000, 400];
 
   // options
   showXAxis = true;
@@ -33,7 +33,7 @@ export class LinearGraphComponent implements OnInit, OnChanges {
 
   colorScheme = {
     domain: [
-      '#7aa3e5', '#a27ea8', '#aae3f5', '#adcded', '#a95963', '#8796c0', '#7ed3ed', '#50abcc', '#ad6886'
+      '#5b646b', '#aae3f5', '#adcded', '#a95963', '#8796c0', '#7ed3ed', '#50abcc', '#ad6886'
     ]
   };
 
@@ -53,17 +53,18 @@ export class LinearGraphComponent implements OnInit, OnChanges {
     console.log($event)
   }
 
+  sizeChange($event){
+    this.view = [$event, $event - 600];
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.data && this.single) {
-      console.log('change', changes.data);
       const tabTemp = this.single[0].series;
       this.single[0].series = changes.data.currentValue;
-      console.log(this.single);
       if(tabTemp != this.single[0].series) {
         this.single = [...this.single];
         this.ref.detectChanges();
       }
-
 
     }
   }
