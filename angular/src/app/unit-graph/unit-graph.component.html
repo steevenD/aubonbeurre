@@ -1,0 +1,20 @@
+<div style="height: 100%; width: 100%">
+
+  <ngx-charts-gauge
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="data"
+      [animations]=true
+      [min]="dataMin"
+      [max]="dataMax"
+      [legend]=true
+      [angleSpan]="200"
+      [startAngle]="-100"
+      [units]="units"
+      [bigSegments]="dataSegmentBig"
+      [smallSegments]="5"
+      [valueFormatting]="valueFormatting">
+    </ngx-charts-gauge>
+
+</div>
+

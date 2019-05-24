@@ -44,7 +44,6 @@ export class LinearGraphAutomateComponent implements OnInit {
   }
 
   loadData(){
-    alert('test');
       if(this.refresh && this.fGroup.get('numeroAutomate').value){
         this.initLoadData();
       }

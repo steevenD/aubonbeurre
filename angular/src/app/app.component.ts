@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AppService} from "./services/app.service";
-import {FormGroup} from "@angular/forms";
+import {AppService} from "./all-automates/services/app.service";
 
 @Component({
   selector: 'app-root',
