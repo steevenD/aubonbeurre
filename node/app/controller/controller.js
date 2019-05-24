@@ -62,7 +62,7 @@ exports.getAllDonnees = (req, res) => {
             throw err;
         } else {
             console.log(donnees);
-            res.status(200).send({ 'donnes': donnees});
+            res.status(200).send({ 'donnees': donnees});
         }
     });
 };

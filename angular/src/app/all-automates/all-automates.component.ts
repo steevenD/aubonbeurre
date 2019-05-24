@@ -12,7 +12,7 @@ export class AllAutomatesComponent implements OnInit {
   fGroup: FormGroup;
 
   indice: string = null;
-  unitsData: any[5];
+  unitsData: any[] = [[],[]];
 
   refresh = true;
   donnees = [
@@ -39,19 +39,22 @@ export class AllAutomatesComponent implements OnInit {
       this.refresh = true;
       this.loadData();
     },10000)
+
   }
   
   loadData(){
     if(this.refresh && this.fGroup.get('donneeIndice').value){
-      this.indice = this.fGroup.get('donneeIndice').value
-      this.api.getAllAutomatesDonnees(this.indice).subscribe((data: any[]) => {
-        console.log(data);
-        data.forEach(element => {
-          this.unitsData[element.unite].push({"name": "Automate " + (element.numero < 10 ? "0" + element.numero : element.numero), "value": element.get(this.indice)});
-        });
-      },
-      error => {});
+      this.initLoadData();
     }
   }
 
+  initLoadData(){
+    this.indice = this.fGroup.get('donneeIndice').value;
+      this.api.getAllAutomatesDonnees(this.indice).subscribe((data: any) => {
+        data.donnees.forEach(element => {
+          this.unitsData[element.unite - 1].push({"name": "Automate " + (element.numero < 10 ? "0" + element.numero : element.numero), "value": element[this.indice]});
+        });
+      },
+      error => {});
+  }
 }

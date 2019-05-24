@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class UnitGraphComponent implements OnInit {
 
   @Input() data: any;
+  @Input() unit: number;
   
   view: number[];
   dataMin: number;
@@ -18,18 +19,15 @@ export class UnitGraphComponent implements OnInit {
   };
   units: string;
   valueFormatting = () => {
-    let average = 0;
-    let unit1 = []
-    this.data.forEach(element => {
-      average = average + element.value;
-    });
-    return "Moyenne : " + (average / this.data.length).toFixed(2)
+    return "UNIT - " + (this.unit + 1);
   };
   
   constructor() { }
 
   ngOnInit() {
     this.units = "degré celsius";
+
+    console.log("UNIT" + (this.unit + 1) + " : ", this.data);
 
     this.checkDataOptions();
   }
